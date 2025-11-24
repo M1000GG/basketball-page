@@ -34,24 +34,6 @@ const StatsPanel = ({ stats }) => (
         </article>
       </div>
     </div>
-
-    <div className='stats-panel__distribution'>
-      <p className='stats-panel__distribution-title'>Distribución por posición</p>
-      <div className='stats-panel__bars'>
-        {stats.distribution.map(item => (
-          <div key={item.position} className='stats-panel__bar'>
-            <span className='stats-panel__bar-label'>{item.position}</span>
-            <div className='stats-panel__bar-track'>
-              <div
-                className='stats-panel__bar-fill'
-                style={{ width: `${item.percentage}%` }}
-              />
-            </div>
-            <span className='stats-panel__bar-value'>{item.count}</span>
-          </div>
-        ))}
-      </div>
-    </div>
   </section>
 )
 
