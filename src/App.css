@@ -38,7 +38,7 @@
 .performance-dashboard__shell {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 1.5rem 4rem;
+  padding: 0 7rem 4rem;
 }
 
 @media (max-width: 768px) {
@@ -65,7 +65,21 @@
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-size: 0.85rem;
-  color: #ffc857;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2); 
+  padding: 0.35rem 0.6rem;              
+  border-radius: 0.8rem;                
+  backdrop-filter: blur(4px); 
+}
+
+.performance-dashboard__breadcrumb-right{
+  color: #77c2bb ;
+  font-weight: bold;
+}
+
+.performance-dashboard__breadcrumb-left{
+  color: #feb551 ;
+  font-weight: bold;
 }
 
 .performance-dashboard__title {
@@ -82,7 +96,6 @@
 .scoreboard {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.5rem;
   align-items: center;
 }
 
@@ -108,11 +121,16 @@
 }
 
 .scoreboard__team-code {
-  font-size: 0.85rem;
+  font-size: 1.3rem;
+  font-weight: 900;
   letter-spacing: 0.4rem;
   text-transform: uppercase;
   margin-bottom: 0.2rem;
-  color: #ffd369;
+  color: white;
+}
+
+.performance-dashboard--light .scoreboard__team-code{
+  color:#1d1d2f;
 }
 
 .scoreboard__team-name {
@@ -127,7 +145,18 @@
   display: flex;
   align-items: baseline;
   gap: 0.8rem;
+  
 }
+
+.scoreboard__results-left {
+  color: #ecab50;
+  text-shadow: 2px 1px 10px #ecab50
+} 
+
+.scoreboard__results-right {
+  color: #77c2bb;
+  text-shadow: 2px 1px 10px #77c2bb
+} 
 
 .scoreboard__divider {
   font-size: 2rem;
@@ -135,12 +164,10 @@
 }
 
 .scoreboard__meta {
-  background: rgba(255, 255, 255, 0.08);
   border-radius: 1.3rem;
   padding: 1rem 1.4rem;
   min-width: 200px;
   text-align: right;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .scoreboard__meta .scoreboard__details-venue {
@@ -159,10 +186,16 @@
 }
 
 .scoreboard__details-period {
+  background: #ffd369;
   text-transform: uppercase;
-  letter-spacing: 0.4rem;
-  color: #ffd369;
+  letter-spacing: 0.1rem;
+  color: black;
   margin-bottom: 0.4rem;
+
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
 }
 
 .scoreboard__details-venue {

@@ -10,7 +10,8 @@ import playersData from './data/players'
 import './App.css'
 
 const scoreboard = {
-  breadcrumb: 'Top Club / Basketball',
+  breadcrumbLeft: 'Basketball',
+  breadcrumbRight: 'Top Club',
   title: 'Central de Rendimiento',
   subtitle: 'Administra convocatorias, analiza métricas clave y mantén la intensidad de juego en cada partido.',
   homeTeam: { code: 'TCB', name: 'Top Club Flames', score: 98 },
@@ -222,10 +223,10 @@ function App() {
 
   return (
     <div className={dashboardClass}>
-      <div className='performance-dashboard__shell py-4 py-lg-5'>
+      <div className='performance-dashboard__shell py-2 py-lg-5'>
         <header className='performance-dashboard__header d-flex flex-column flex-lg-row align-items-lg-start justify-content-between gap-3'>
           <div>
-            <p className='performance-dashboard__breadcrumb mb-1'>{scoreboard.breadcrumb}</p>
+            <p className='performance-dashboard__breadcrumb mb-1'><span className='performance-dashboard__breadcrumb-left'>{scoreboard.breadcrumbLeft}</span><span> / </span><span className='performance-dashboard__breadcrumb-right'>{scoreboard.breadcrumbRight}</span></p>
             <h1 className='performance-dashboard__title mb-2'>{scoreboard.title}</h1>
             <p className='performance-dashboard__subtitle mb-0'>{scoreboard.subtitle}</p>
           </div>
@@ -242,18 +243,18 @@ function App() {
               <p className='scoreboard__team-name'>{scoreboard.homeTeam.name}</p>
             </div>
             <div className='scoreboard__score'>
-              <span>{scoreboard.homeTeam.score}</span>
-              <span className='scoreboard__divider'>—</span>
-              <span>{scoreboard.awayTeam.score}</span>
+              <span className='scoreboard__results-left' >{scoreboard.homeTeam.score}</span>
+              <span className='scoreboard__divider '>—</span>
+              <span className='scoreboard__results-right' >{scoreboard.awayTeam.score}</span>
             </div>
-            <div className='scoreboard__team scoreboard__team--right text-end'>
+            <div className='scoreboard__team scoreboard__team--right text-end me-5'>
               <p className='scoreboard__team-code'>{scoreboard.awayTeam.code}</p>
               <p className='scoreboard__team-name'>{scoreboard.awayTeam.name}</p>
             </div>
-          </div>
-          <div className='scoreboard__meta'>
-            <p className='scoreboard__details-period'>{scoreboard.quarter}</p>
-            <p className='scoreboard__details-venue mb-0'>{scoreboard.venue}</p>
+            <div className='scoreboard__meta ms-5'>
+              <p className='scoreboard__details-period'>{scoreboard.quarter}</p>
+              <p className='scoreboard__details-venue mb-0'>{scoreboard.venue}</p>
+            </div>
           </div>
         </section>
 
