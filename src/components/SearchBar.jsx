@@ -28,9 +28,13 @@ const SearchBar = ({ value, onChange, onClear, resultsCount }) => {
             </button>
           )}
         </div>
-        <span className='search-bar__badge'>
-          Mostrando <strong>{resultsCount}</strong> resultados
-        </span>
+          <button
+          type='button'
+          className='dashboard-panel__btn'
+          onClick={onClear}
+          aria-label='Limpiar búsqueda'>
+            Limpiar
+          </button>
       </div>
     </div>
   )

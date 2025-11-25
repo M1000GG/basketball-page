@@ -17,8 +17,8 @@
   --color-accent: #ffd369;
   --color-accent-strong: #ffb347;
   --color-table-header: #f8e9c8;
-  --color-table-even: #ffd369;
-  --color-table-odd: #ffd369;
+  --color-table-even: #f0e5c1;
+  --color-table-odd: #f0e5c1;
   --color-table-border: #f0d89c;
   --color-table-text: #1f1c2e;
 }
@@ -186,7 +186,7 @@
 }
 
 .scoreboard__details-period {
-  background: #ffd369;
+  background:#ffc10f;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: black;
@@ -239,7 +239,7 @@
   padding: 0.8rem 2.6rem 0.8rem 2.4rem;
   border-radius: 0.9rem;
   border: none;
-  background: #ffb347;
+  background: #ffc10f;
   color: #1d1304;
   font-size: 1rem;
   font-weight: 600;
@@ -324,7 +324,7 @@
 }
 
 .dashboard-panel__btn--active {
-  background: linear-gradient(90deg, #ffd369, #ff9f1c);
+  background: linear-gradient(90deg, #ffc10f, #ffc10f);
   color: #1b1c2b;
 }
 
@@ -383,7 +383,7 @@
 }
 
 .search-history__chip--active {
-  background: #ffd369;
+  background: stats-panel__card;
   color: #1b1c2b;
   font-weight: 600;
 }
@@ -416,7 +416,7 @@
 }
 
 .stats-panel__card--accent {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-strong));
+  background: #ffc10f;
   color: #1b1c2b;
   box-shadow: none;
 }
@@ -498,14 +498,22 @@
   font-size: 0.92rem;
 }
 
-.player-table th,
+
 .player-table td {
   font-size: 0.92rem;
+  
+}
+
+.player-table th{
+  font-size: 0.92rem;
+  background-color: #202429;
+  color: white;
+  
 }
 
 .player-table__head {
+  background-color: #040312;
   text-transform: uppercase;
-  font-size: 0.75rem;
   letter-spacing: 0.12rem;
   color: var(--color-table-text);
   border: none;
@@ -669,7 +677,7 @@
 }
 
 .pagination-controls__btn--active {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-strong));
+  background: #ffc10f;
   color: #1b1c2b;
   border-color: transparent;
 }
@@ -701,7 +709,7 @@
   border: none;
   border-radius: 999px;
   padding: 0.5rem 1.5rem;
-  background: #ffd369;
+  background: #ffc10f;
   color: #1b1c2b;
   display: inline-flex;
   align-items: center;
