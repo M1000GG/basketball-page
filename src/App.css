@@ -17,8 +17,8 @@
   --color-accent: #ffd369;
   --color-accent-strong: #ffb347;
   --color-table-header: #f8e9c8;
-  --color-table-even: #fff6de;
-  --color-table-odd: #fbe8c5;
+  --color-table-even: #ffd369;
+  --color-table-odd: #ffd369;
   --color-table-border: #f0d89c;
   --color-table-text: #1f1c2e;
 }
@@ -563,11 +563,11 @@
   background: rgba(255, 255, 255, 0.9);
 }
 
-.player-row--even {
+.player-row--even td {
   background: var(--color-table-even);
 }
 
-.player-row--odd {
+.player-row--odd td {
   background: var(--color-table-odd);
 }
 
