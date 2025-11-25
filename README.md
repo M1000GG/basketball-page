@@ -1,16 +1,83 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Basketball Page con React + Bootstrap
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplicación React que replica la interfaz de “Central de Rendimiento” para Top Club Flames. Incluye búsqueda avanzada con debounce, paginación dinámica, ordenamiento multi-columna, favoritos persistentes y modo oscuro/claro. El objetivo es contar con un panel listo para desplegar en Netlify y evaluar métricas clave de los jugadores asignados.
 
-## React Compiler
+## Funcionalidades clave
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Sistema de búsqueda con debounce (300 ms) y contador de resultados.
+- Botones para colorear filas pares/impares y limpiar resaltado.
+- Paginación completa: selector 5/10/20 por página, botones Primera/Anterior/Siguiente/Última y rango “Mostrando X-Y de Z”.
+- Ordenamiento cíclico por todas las columnas (ninguno → ascendente → descendente).
+- Modo oscuro/claro persistente mediante `localStorage`.
+- Panel de estadísticas en tiempo real (`useMemo`): totales, promedios y distribución por posición con barras.
+- Modal con detalles ampliados y animación de aparición.
+- Sistema de favoritos persistente con filtro “mostrar solo favoritos”.
+- Historial de últimas 5 búsquedas con restauración rápida y limpieza.
+- Componentes reutilizables (`SearchBar`, `PlayerTable`, `PlayerRow`, `Pagination`, `StatsPanel`, `Modal`, `ThemeToggle`, `SearchHistory`).
+- Estructura HTML completa (`<html><head><body>`) con metadatos de autor, keywords y descripción.
+- Diseño responsive utilizando Bootstrap 5 (grid) + CSS propio con metodología **BEM**.
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19 + Vite.
+- Bootstrap 5.3 (grillas y helpers responsivos).
+- CSS personalizado (BEM + variables).
+- LocalStorage para persistencia de tema, favoritos e historial.
+
+## Arquitectura
+
+```text
+src/
+  components/
+    Pagination.jsx
+    PlayerModal.jsx
+    PlayerRow.jsx
+    PlayerTable.jsx
+    SearchBar.jsx
+    SearchHistory.jsx
+    StatsPanel.jsx
+    ThemeToggle.jsx
+  data/
+    players.js
+  App.jsx
+  App.css
+  main.jsx
+  index.css
+```
+
+## Hooks utilizados
+
+- `useState`: controla búsqueda, debounce, colores de filas, paginación, sorteo, favoritos, historial, tema y modal.
+- `useEffect`:
+  - debounce de búsqueda con cleanup,
+  - sincronización con `localStorage`,
+  - reinicio de paginación al filtrar y límite automático de página.
+- `useMemo`: calcula jugadores filtrados/ordenados y estadísticas (promedios, top scorer, distribución por posición) evitando renders costosos.
+
+## Evidencia BEM
+
+Ejemplos de bloques/modificadores en `src/App.css`:
+
+- `performance-dashboard`, `performance-dashboard--light`.
+- `scoreboard__card`, `scoreboard__team-code`.
+- `player-row`, `player-row--even`, `player-row__favorite--active`.
+- `stats-panel__card`, `stats-panel__card--highlight`.
+
+## Capturas
+
+
+## Equipo
+
+- Integrantes: Mateo Gutiérrez Delgado, Juan Sebastián Jurado García, Santiago Herrera Giraldo.
+
+## ✅ Checklist de requisitos
+
+- [x] Estructura HTML completa con `<html><head><body>`.
+- [x] Metadatos de autor/keywords/description.
+- [x] Indentación suave de 2 espacios.
+- [x] Metodología BEM en clases CSS.
+- [x] Componentes reutilizables solicitados.
+- [x] Bootstrap como framework de grillas responsive.
+- [x] Todos los sistemas interactivos (debounce, paginación, favoritos, historial, modal, stats, modo oscuro).
