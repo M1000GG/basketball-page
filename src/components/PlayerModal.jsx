@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types'
 
-const PlayerModal = ({ isOpen, player, onClose, darkMode }) => {
+const PlayerModal = ({ isOpen, player, onClose, darkMode, isFavorite, onToggleFavorite }) => {
   if (!isOpen || !player) return null
+
+  const handleFavoriteClick = (event) => {
+    event.stopPropagation()
+    onToggleFavorite(player.id)
+  }
 
   return (
     <div className='player-modal__overlay player-modal__overlay--visible' onClick={onClose}>
@@ -11,6 +16,9 @@ const PlayerModal = ({ isOpen, player, onClose, darkMode }) => {
       >
         <button type='button' className='player-modal__close' onClick={onClose} aria-label='Cerrar modal'>
           ×
+        </button>
+        <button type='button' className={`player-row__favorite player-modal__favorite ${isFavorite ? 'player-row__favorite--active' : ''}`} onClick={handleFavoriteClick} aria-label={isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}>
+          {isFavorite ? '★' : '☆'}
         </button>
         <p className='player-modal__role'>{player.position}</p>
         <h3 className='player-modal__name'>{player.name}</h3>
@@ -57,11 +65,15 @@ PlayerModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   player: PropTypes.object,
   onClose: PropTypes.func.isRequired,
-  darkMode: PropTypes.bool.isRequired
+  darkMode: PropTypes.bool.isRequired,
+  isFavorite: PropTypes.bool,
+  onToggleFavorite: PropTypes.func
 }
 
 PlayerModal.defaultProps = {
-  player: null
+  player: null,
+  isFavorite: false,
+  onToggleFavorite: () => {}
 }
 
 export default PlayerModal

@@ -739,6 +739,14 @@
   color: #fff;
 }
 
+.player-modal__favorite {
+  position: absolute;
+  top: 1.5rem;
+  right: 3.2rem;
+  z-index: 1;
+}
+
+
 .performance-dashboard--light .player-modal {
   background: #fff;
   color: #1c1d2b;

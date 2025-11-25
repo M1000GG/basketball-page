@@ -342,6 +342,8 @@ function App() {
         player={selectedPlayer}
         onClose={handleCloseModal}
         darkMode={darkMode}
+        isFavorite={selectedPlayer ? favorites.includes(selectedPlayer.id) : false}
+        onToggleFavorite={handleToggleFavorite}
       />
     </div>
   )
